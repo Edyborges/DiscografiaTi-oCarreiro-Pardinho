@@ -1,0 +1,32 @@
+
+
+body{
+    background-image: url( "/img/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#teste{
+    background-color: white;
+}
+
+#b{
+    background-color: white;
+    opacity: 0.5;
+    height: 500px;
+    padding: 15px 15px 15px 15px;
+}
+
+#radius{
+    padding: 1px 15px 3px 2px;
+	border-radius: 50px;
+}
+
+.sizeLogo {
+    height: 40px;
+}
+
+#botao_salvar{
+    float: right;
+}
+
