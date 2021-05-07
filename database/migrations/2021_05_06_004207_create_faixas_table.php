@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddDuracaoToAlbunsTable extends Migration
+class CreateFaixasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,13 @@ class AddDuracaoToAlbunsTable extends Migration
      */
     public function up()
     {
-        Schema::table('albuns', function (Blueprint $table) {
-       
+        Schema::create('faixas', function (Blueprint $table) {
+            $table->id();
+            $table->integer("album_id");
+            $table->timestamps();
+            $table->integer("numero");
+            $table->string('nome');
+            $table->string('duracao');
         });
     }
 
@@ -25,8 +30,6 @@ class AddDuracaoToAlbunsTable extends Migration
      */
     public function down()
     {
-        Schema::table('albuns', function (Blueprint $table) {
-            $table->dropColumn('titulo');
-        });
+        Schema::dropIfExists('faixas');
     }
 }

@@ -8,14 +8,15 @@
 <p>Cadastrar álbum</p>
 
     <form action="/albuns" method="POST">
+    @csrf
         <div class="form-group">
             <label for="titulo">Título</label>
-            <input type="text" class="form-control" id="titulo" name="titulo">
+            <input type="text" class="form-control" id="titulo" name="titulo" placeholder="título">
         </div>
 
         <div class="form-group">
             <label for="ano">Ano</label>
-            <input type="text" class="form-control" id="ano" name="ano">
+            <input type="text" class="form-control" id="ano" name="ano" placeholder="ano">
         </div>
         <br>
 

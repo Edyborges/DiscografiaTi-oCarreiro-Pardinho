@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -32,23 +30,32 @@
                     <img src="/img/logo.png" class="sizeLogo" alt="">
 
                 </a>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="/" class="nav-link">Album</a>
+
+                <ul class="menu">
+                  
+                    
+                    <li><a href="/album/albuns" class="nav-link">Albuns</a>
+                        <ul>
+                            <li> <a href="/album/create" class="nav-link">Cadastrar album</a></li>
+                                                     
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a href="/album/create" class="nav-link">Criar</a>
+                    <li><a href="/faixa/faixas">Faixas</a>
+                        <ul>
+                            <li><a href="/faixa/create">Cadastra Faixa</a></li>
+                           
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a href="/album/update" class="nav-link">Atualizar</a>
-                    </li>
+                    <li><a href="#">Links</a></li>
+                    <li><a href="#">Contato</a></li>
                 </ul>
+
 
             </div>
         </nav>
     </header>
     <br>
-   
+
     @yield('content')
     <footer>Discografia Tião Carreiro e Pardinho &copy; 2021</footer>
 

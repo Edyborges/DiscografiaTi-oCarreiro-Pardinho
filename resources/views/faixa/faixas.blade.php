@@ -36,23 +36,22 @@
          <tr>
             
             <th scope="col">ID</th>
-            <th scope="col">TÍTULO</th>
-            <th scope="col">ANO</th>
-            <th scope="col">OPÇÕES</th>
+            <th scope="col">NÚMERO</th>
+            <th scope="col">NOME</th>
+            <th scope="col">DURAÇÃO</th>
          </tr>
       </thead>
       <tbody>
-         @foreach($albuns as $album)
+         @foreach($faixas as $faixa)
          <tr>
 
-            <td scope="row">{{$album->id}}</td>
-            <td scope="row">{{ $album->titulo }} </td>
-            <td scope="row"> {{ $album->ano }}</td>
-            <td scope="row"> <a href="/album/{{$album->id}}">Detalhes do Album</a></td>
-
+            <td scope="row">{{$faixa->id}}</td>
+            <td scope="row">{{ $faixa->numero }} </td>
+            <td scope="row">{{ $faixa->nome }} </td>
+            <td scope="row"> {{ $faixa->duracao }}</td>
+          
          </tr>
          @endforeach
-
 
       </tbody>
    </table>

@@ -16,7 +16,7 @@ class CreateAlbunsTable extends Migration
         Schema::create('albuns', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('nome');
+            $table->string('titulo');
             $table->string('ano', 50);
            
         });
