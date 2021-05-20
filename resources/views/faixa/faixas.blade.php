@@ -10,26 +10,13 @@
 
 
 
-<div class="container" id="b">
+<div class="container conteudo">
 
-   <div id="search-container">
-      <p>Digite uma palavra chave</p>
-      <form action="">
-         <div class="row">
-            <div class="col-md-10">
-               <input type="text" name="" id="search" name="search" class="form-control" placeholder="buscca">
-            </div>
 
-            <div class="col-md-2">
-               <button class="btn btn-primary">Buscar</button>
-            </div>
-         </div>
-      </form>
-   </div>
+<a class="link" href="/faixa/create"><img src="/img/novo.png" alt="icone">Nova Faixa</a><br>
 
-   <div id="events-container" class="com-md-12">
 
-   </div>
+ <br>
 
    <table class="table">
       <thead>
@@ -39,6 +26,8 @@
             <th scope="col">NÚMERO</th>
             <th scope="col">NOME</th>
             <th scope="col">DURAÇÃO</th>
+            <th scope="col">Detalhes</th>
+            <th scope="col">Editar Faixa</th>
          </tr>
       </thead>
       <tbody>
@@ -49,12 +38,18 @@
             <td scope="row">{{ $faixa->numero }} </td>
             <td scope="row">{{ $faixa->nome }} </td>
             <td scope="row"> {{ $faixa->duracao }}</td>
+            <td scope="row" class="icone"> <form action="/faixas/{{$faixa->id}}" method="POST">
+                  @csrf
+                  @method('DELETE')
+
+                  <button class="btn btn-primary"><img src="/img/btn_detalhe.png" alt="icone"></button>
+               </form></td>
+            <td scope="row" class="icone" ><img src="/img/editar.png" alt=""></td>
           
          </tr>
          @endforeach
-
       </tbody>
    </table>
-
+   
 </div>
 @endsection

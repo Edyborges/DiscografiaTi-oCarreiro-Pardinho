@@ -15,7 +15,7 @@ class CreateFaixasTable extends Migration
     {
         Schema::create('faixas', function (Blueprint $table) {
             $table->id();
-            $table->integer("album_id");
+            $table->bigInteger("album_id")->unsigned();
             $table->timestamps();
             $table->integer("numero");
             $table->string('nome');

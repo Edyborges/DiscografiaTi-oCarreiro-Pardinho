@@ -3,21 +3,28 @@
 
 @section('content')
 
-<div id="b" class="col-md-6 offset-md-3">
+<div >
+<br><br>
 
-<p>Cadastrar Faixa</p>
 
-    <form action="/faixas" method="POST">
-    @csrf
+
+    <form class="col-md-6 offset-md-3" action="/faixas" method="POST">
+        @csrf
         <div class="form-group">
             <label for="numero">Numero</label>
             <input type="text" class="form-control" id="numero" name="numero" placeholder="numero">
         </div>
-
+        <br>
+ 
         <div class="form-group">
-            <label for="album_id">Album</label>
-            <input type="text" class="form-control" id="album_id" name="album_id" placeholder="album">
+            <select id="ddlViewBy" name="album_id">
+                <option value="2" selected="selected">Album</option>
+                @foreach($albuns as $album)
+                <option value="{{$album->id}}">{{$album->titulo}}</option>
+                @endforeach
+            </select>
         </div>
+        <br>
 
         <div class="form-group">
             <label for="nome">Nome</label>
@@ -30,7 +37,8 @@
         </div>
         <br>
 
-        <input type="submit" class="btn btn-primary" value="Salvar" id="botao_salvar">
+        <input type="submit" onclick="mostrarNotificacaoSucesso('{{$msg}}')" class="btn btn-primary" value="Salvar" id="botao_salvar">
+
 
     </form>
 

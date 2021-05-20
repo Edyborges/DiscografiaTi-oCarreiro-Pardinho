@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="col-md-10 offset-md-1">
+<div class="col-md-10 offset-md-1 ">
     <div class="row">
         <div id="info-container" class="col-md-6">
             <h6>Album: {{$album->titulo}}, {{$album->ano}}</h6>
@@ -12,7 +12,7 @@
         </div>
     </div>
 </div>
-<div  class="col-md-6 offset-md-3">
+<div  class="col-md-6 offset-md-3 conteudo" >
     <table class="table">
        
 

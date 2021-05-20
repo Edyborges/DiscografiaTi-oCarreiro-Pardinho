@@ -1,26 +1,29 @@
 @extends('layouts.main')
-@section('title', 'Criar conta')
 
-@section('content')
+@section('title', 'CRIAR ALBUM')
 
-<div id="b" class="col-md-6 offset-md-3">
+@section('content') 
 
-<p>Cadastrar álbum</p>
+<div  >
 
-    <form action="/albuns" method="POST">
-    @csrf
+<br>
+    <form class="col-md-6 offset-md-3" action="/albuns" method="POST" >
+        @csrf
+
         <div class="form-group">
             <label for="titulo">Título</label>
             <input type="text" class="form-control" id="titulo" name="titulo" placeholder="título">
         </div>
+      
 
         <div class="form-group">
             <label for="ano">Ano</label>
             <input type="text" class="form-control" id="ano" name="ano" placeholder="ano">
         </div>
         <br>
+        <input type="submit" onclick="mostrarNotificacaoSucesso('{{$msg}}' )" class="btn btn-primary" value="Salvar" id="botao_salvar">
 
-        <input type="submit" class="btn btn-primary" value="Salvar" id="botao_salvar">
+
 
     </form>
 

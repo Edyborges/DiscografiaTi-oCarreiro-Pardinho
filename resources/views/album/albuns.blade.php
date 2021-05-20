@@ -1,54 +1,42 @@
 @extends('layouts.main')
 
-@section('title',' Discografia Tião Carreiro e Pardinho' )
+@section('title',' ALBUNS' )
 
 @section('content')
+<br>
+<div class=" conteudo">
 
 
-
-
-
-
-
-<div class="container" id="b">
-
-   <div id="search-container">
-      <p>Digite uma palavra chave</p>
-      <form action="">
-         <div class="row">
-            <div class="col-md-10">
-               <input type="text" name="" id="search" name="search" class="form-control" placeholder="buscca">
-            </div>
-
-            <div class="col-md-2">
-               <button class="btn btn-primary">Buscar</button>
-            </div>
-         </div>
-      </form>
-   </div>
-
-   <div id="events-container" class="com-md-12">
-
-   </div>
-
+  
+  
    <table class="table">
       <thead>
          <tr>
-            
-            <th scope="col">ID</th>
-            <th scope="col">TÍTULO</th>
-            <th scope="col">ANO</th>
-            <th scope="col">OPÇÕES</th>
+
+
+            <th scope="col">Título</th>
+            <th scope="col">Ano</th>
+
+            <th scope="col" style="text-align: center;">Opções</th>
+           
+
          </tr>
       </thead>
       <tbody>
          @foreach($albuns as $album)
          <tr>
-
-            <td scope="row">{{$album->id}}</td>
             <td scope="row">{{ $album->titulo }} </td>
             <td scope="row"> {{ $album->ano }}</td>
-            <td scope="row"> <a href="/album/{{$album->id}}">Detalhes do Album</a></td>
+       
+            <td scope="row">
+            <a href="/edit/{{$album->id}}"> <ion-icon name="pencil"></ion-icon></a> 
+               <form action="/albuns/{{$album->id}}" method="POST">
+                  @csrf
+                  @method('DELETE')
+
+                  <button style="border: none; background: none;" onclick="mostrarNotificacaoSucesso('{{$msg}}' )" ><ion-icon name='trash'></ion-icon></button>
+               </form>
+            </td>
 
          </tr>
          @endforeach
@@ -57,5 +45,11 @@
       </tbody>
    </table>
 
+  <a href="/album/create"> <ion-icon name="add-circle"></ion-icon> <h6 class="ion-icon">Adicionar Novo</h1></a><br>
+
+
+
 </div>
+
+
 @endsection

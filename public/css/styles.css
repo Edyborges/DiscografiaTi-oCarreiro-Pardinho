@@ -1,79 +1,271 @@
-body {
-    background-image: url("/img/background.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-#teste {
-    background-color: white;
-}
-
-#b {
-    background-color: white;
-    opacity: 0.5;
-    height: 550px;
-    padding: 15px 15px 15px 15px;
-}
-
-#radius {
-    padding: 1px 15px 3px 2px;
-    border-radius: 50px;
-}
-
-.sizeLogo {
-    height: 40px;
-}
-
-#botao_salvar {
-    float: right;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-}
-
-.menu {
-    list-style: none;
-    float: left;
-}
-
-.menu li {
-    position: relative;
-    float: left;
-    border-right: 1px solid #c0c0c0;
-}
-
-.menu li a {
-    color: #333;
-    text-decoration: none;
-    padding: 5px 10px;
-    display: block;
-}
-
-.menu li a:hover {
-    background: #333;
-    color: #fff;
-    -moz-box-shadow: 0 3px 10px 0 #CCC;
-    -webkit-box-shadow: 0 3px 10px 0 #ccc;
-    text-shadow: 0px 0px 5px #fff;
-}
-
-.menu li ul {
-    position: absolute;
-    top: 25px;
-    left: 0;
-    background-color: #fff;
-    display: none;
-}
-
-.menu li:hover ul,
-.menu li.over ul {
-    display: block;
-}
-
-.menu li ul li {
-    border: 1px solid #c0c0c0;
-    display: block;
-    width: 150px;
-}
+    html,
+    body {
+        background-image: url("/img/background.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+    }
+    
+    .geral {
+        min-height: 100%;
+        position: relative;
+        width: 800px;
+    }
+    
+    .header-color {
+        background-color: white;
+    }
+    
+    .conteudo {
+        background-color: white;
+        opacity: 0.5;
+        height: auto;
+        padding: 15px 15px 15px 15px;
+    }
+    
+    .radius {
+        border-radius: 50px !important;
+    }
+    
+    .sizeLogo {
+        height: 40px;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .menu {
+        list-style: none;
+        float: left;
+    }
+    
+    .menu li {
+        position: relative;
+        float: left;
+        border-right: 1px solid #c0c0c0;
+    }
+    
+    .menu li a {
+        color: #333;
+        text-decoration: none;
+        padding: 5px 10px;
+        display: block;
+    }
+    
+    .menu li a:hover {
+        background: #333;
+        color: #fff;
+        -moz-box-shadow: 0 3px 10px 0 #CCC;
+        -webkit-box-shadow: 0 3px 10px 0 #ccc;
+        text-shadow: 0px 0px 5px #fff;
+    }
+    
+    .menu li ul {
+        position: absolute;
+        top: 25px;
+        left: 0;
+        background-color: #fff;
+        display: none;
+    }
+    
+    .titulo-header {
+        margin-left: 700px;
+    }
+    
+    .float-footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+    
+    a.link:link {
+        text-decoration: red !important;
+    }
+    /* Dropdown Button */
+    
+    .dropbtn {
+        background-color: #3498DB;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+    /* Dropdown button on hover & focus */
+    
+    .dropbtn:hover,
+    .dropbtn:focus {
+        background-color: #2980B9;
+    }
+    /* The container <div> - needed to position the dropdown content */
+    
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    /* Dropdown Content (Hidden by Default) */
+    
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+    /* Links inside the dropdown */
+    
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    /* Change color of dropdown links on hover */
+    
+    .dropdown-content a:hover {
+        background-color: #ddd
+    }
+    /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+    
+    .show {
+        display: block;
+    }
+    
+    .msg {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+        width: 100;
+        margin-bottom: 0;
+        text-align: center;
+        padding: 10px;
+        ;
+    }
+    
+    * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+    }
+    
+    .janela-base {
+        position: fixed;
+        margin-left: 82%;
+        top: 0;
+        z-index: 1;
+        transform: translate(-50%);
+        min-width: 200px;
+        max-width: 300px;
+        min-height: 50px;
+        max-height: 400px;
+        box-shadow: 0px 0px 10px 0.2px;
+        border-radius: 10px;
+        visibility: hidden;
+        word-wrap: break-word;
+        opacity: 0;
+    }
+    
+    .janela-corpo1 {
+        background-color: #0f7e22;
+        min-height: 50px;
+        max-height: 400px;
+        text-align: center;
+        width: 296px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        padding-top: 10px;
+        padding-left: 1px;
+        padding-right: 1px;
+        font-family: arial;
+        padding-left: 3px;
+        padding-bottom: 3px;
+        padding-right: 3px;
+    }
+    
+    .janela-titulo {
+        background-color: #6a7996;
+        width: 100%;
+        max-width: 295px;
+        min-height: 30px;
+        max-height: 30px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        padding-left: 6px;
+        padding-right: 1px;
+        font-family: arial;
+        line-height: 30px;
+        font-weight: 700;
+    }
+    
+    .janela-corpo {
+        background-color: #8f340a;
+        min-height: 90px;
+        max-height: 400px;
+        width: 296px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        padding-left: 1px;
+        padding-right: 1px;
+        font-family: arial;
+        padding-left: 3px;
+        padding-bottom: 3px;
+        padding-right: 3px;
+    }
+    
+    #corpo {
+        width: 100%;
+    }
+    
+    .janela-base.visivel {
+        visibility: visible;
+        animation: fadeInOut 10s;
+    }
+    
+    .janela-base.fechar {
+        visibility: hidden;
+    }
+    
+    @keyframes fadeInOut {
+        5%,
+        95% {
+            opacity: 1;
+            top: 50px
+        }
+        15%,
+        85% {
+            opacity: 1;
+            top: 30px
+        }
+    }
+    
+    #btn-fechar {
+        position: absolute;
+        width: 55px;
+        height: 20px;
+        top: 95px;
+        right: 6px;
+        bottom: 12px;
+        border-style: solid;
+        border-radius: 3px;
+        color: #596e91;
+        border-color: #596e91;
+        background-color: rgba(0, 0, 0, .01)
+    }
+    
+    ion-icon {
+        color: red;
+        float: right;
+    }
+    
+    .ion-icon {
+        color: red;
+        float: right;
+        text-decoration: none;
+        display: block;
+        margin-top: -3px;
+    }
