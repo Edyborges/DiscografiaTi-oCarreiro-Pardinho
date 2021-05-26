@@ -16,7 +16,7 @@ class FaixaController extends Controller
 
     public function getFaixas()
     {
-        $msg="ererere";
+        $msg = "ererere";
         $search = request('search');
         $pageTitle = 'FAIXAS';
         $albuns = Albuns::all();
@@ -33,16 +33,30 @@ class FaixaController extends Controller
 
 
 
-        return view('faixa.faixas', ['faixas' => $faixas, "pageTitle" => $pageTitle, 'search' => $search, 'albuns'=>$albuns, "msg"=>$msg]);
+        return view('faixa.faixas', ['faixas' => $faixas, "pageTitle" => $pageTitle, 'search' => $search, 'albuns' => $albuns, "msg" => $msg]);
     }
 
     public function create()
     {
-        $msg="Faixa adicionada com sucesso mnmmnmn";
+        $msg = "Faixa adicionada com sucesso mnmmnmn";
         $faixas = Faixas::all();
         $albuns = Albuns::all();
         $pageTitle = "CADASTRAR FAIXA";
-        return view('faixa.create', ['pageTitle' => $pageTitle, 'albuns' => $albuns, 'faixas'=>$faixas, "msg"=>$msg]);
+        return view('faixa.create', ['pageTitle' => $pageTitle, 'albuns' => $albuns, 'faixas' => $faixas, "msg" => $msg]);
+    }
+
+    public function edit($id)
+    {
+        $albuns = Albuns::all();
+        $faixas =  Faixas::findOrFail($id);
+        return view('faixa.edit', ['faixas' => $faixas, 'albuns'=>$albuns]);
+    }
+
+    public function update(Request $request )
+    {
+       Faixas::findOrFail($request->id)->update($request->all());
+        return redirect('faixa/faixas')->with('msg', 'Faixa atualizada com sucesso!');
+       
     }
 
 
@@ -50,7 +64,7 @@ class FaixaController extends Controller
     public function store(Request $request)
     {
 
-        
+
         $faixa = new Faixas();
         $faixa->nome = $request->nome;
         $faixa->numero = $request->numero;
@@ -58,11 +72,14 @@ class FaixaController extends Controller
         $faixa->album_id = $request->album_id;
 
         $faixa->save();
-        return redirect('/faixa/faixas');
+        return redirect('/faixa/faixas')->with('msg', 'Faixa adicionada com sucesso!');
     }
 
-    public function destroy($id){
+   
+
+    public function destroy($id)
+    {
         Faixas::findOrFail($id)->delete();
-        return redirect('/faixa/faixas')->with('msg', 'Faixa excluíd com sucesso!');
+        return redirect('/faixa/faixas')->with('msg', 'Faixa excluída com sucesso!');
     }
 }

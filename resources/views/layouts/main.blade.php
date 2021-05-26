@@ -24,51 +24,48 @@
 </head>
 
 
-<div class="col col-md-12">
-
-
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light header-color">
-            <div class="collapse navbar-collapse" id="navbar">
-                <a href="/" class="navbar-brand">
-                    <img src="/img/logo.png" class="sizeLogo" alt="">
-
-                </a>
-
-                <ul class="menu">
-                    <li><a href="/">Home</a></li>
-
-                    <li><a href="/album/albuns" class="nav-link">Albuns</a></li>
-
-                    @if($albuns->count() == null )
-                    <li><a onclick="mostrarNotificacao('Mensagem:','{{$msg}}')">Faixas</a>
-
-                    </li>
-
-                    @endif
-                    @if($albuns->count() != null )
-                    <li><a href="/faixa/faixas" class="nav-link">Faixas</a></li>
-
-                    </li>
-                    @endif
-
-
-
-
-                
-                </ul>
-            </div>
-        </nav>
-    </header>
-</div>
 
 <body class="antialiased">
+    <div class="col col-md-12">
 
 
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light header-color">
+                <div class="collapse navbar-collapse" id="navbar">
+                    <a href="/" class="navbar-brand">
+                        <img src="/img/logo.png" class="sizeLogo" alt="">
+
+                    </a>
+
+                    <ul class="menu">
+                        <li><a href="/">Home</a></li>
+
+                        <li><a href="/album/albuns" class="nav-link">Albuns</a></li>
+
+                        @if($albuns->count() == null )
+                        <li><a onclick="mostrarNotificacao('Mensagem:','{{$msg}}')">Faixas</a>
+
+                        </li>
+
+                        @endif
+                        @if($albuns->count() != null )
+                        <li><a href="/faixa/faixas" class="nav-link">Faixas</a></li>
+
+                        </li>
+                        @endif
+
+
+
+
+
+                    </ul>
+                </div>
+            </nav>
+        </header>
+    </div>
 
     <main>
 
-      
         <div class="container-fluid">
             <div class="row">
                 @if(session('msg'))

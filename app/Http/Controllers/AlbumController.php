@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Albuns;
 use App\Models\Faixas;
 use App\Models\PageTitle;
-use App\public\js\script;
+
 
 
 class AlbumController extends Controller
@@ -41,18 +41,14 @@ class AlbumController extends Controller
     {
 
         $faixas = Faixas::all();
-        $msg =  "Album excluído com sucesso !";
-        $msgNull = "Não há nenhum album cadastrado para adicionar faixas. Favor cadastrar pelo menos um album !";
+        
+        $msg= "Não há nenhum album cadastrado para adicionar faixas. Favor cadastrar pelo menos um album !";
         $pageTitle = "ALBUNS";
         $albuns = Albuns::all();
 
-        return view('album.albuns', ['albuns' => $albuns, 'pageTitle' => $pageTitle, "msgNull" => $msgNull, "msg" => $msg, 'faixas' => $faixas]);
+        return view('album.albuns', ['albuns' => $albuns, 'pageTitle' => $pageTitle, "msg" => $msg, 'faixas' => $faixas]);
     }
 
-   public function edit($id){
-       $albuns = Albuns::findOrFail($id);
-       return view('album.edit', ['albuns'=>$albuns]);
-   }
 
 
     public function create()
@@ -63,11 +59,27 @@ class AlbumController extends Controller
         return view('album.create', ['pageTitle' => $pageTitle, 'albuns' => $albuns, "msg" => $msg]);
     }
 
+    public function edit($id){
+        $albuns = Albuns::findOrFail($id);
+        return view('album.edit', ['albuns'=>$albuns]);
+    }
+ 
+
     public function update(Request $request )
     {
+     
         Albuns::findOrFail($request->id)->update($request->all());
-        return redirect('/album/albuns');
+        return redirect('album/albuns')->with('msg', 'Album atualizado com sucesso !');
        
+    }
+    public function detalhe_album($id)
+    {
+
+        $pageTitle = "DETALHES DO ALBUM";
+        $albuns =  Albuns::findOrFail($id);
+        $faixas = Faixas::all();
+
+        return view('album.detalhe-album', ['albuns' => $albuns, 'faixas' => $faixas, 'pageTitle' => $pageTitle]);
     }
 
     public function store(Request $request)
@@ -79,23 +91,16 @@ class AlbumController extends Controller
 
 
         $album->save();
-        return redirect('/album/albuns');
+        return redirect('album/albuns')->with('msg', 'Album adicionado com sucesso !');
     }
 
-    public function detalhe_album($id)
-    {
-
-        $pageTitle = "DETALHES DO ALBUM";
-        $album =  Albuns::findOrFail($id);
-        $faixas = Faixas::all();
-
-        return view('album.detalhe_album', ['album' => $album, 'faixas' => $faixas, 'pageTitle' => $pageTitle]);
-    }
+   
 
     public function destroy($id)
     {
+        
         Albuns::findOrFail($id)->delete();
-        return redirect('/album/albuns');
+        return redirect('/album/albuns')->with('msg', 'Album excluído com sucesso !');
     }
 
    

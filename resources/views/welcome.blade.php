@@ -54,11 +54,13 @@
    @endif
    @endforeach
 
+   
    @foreach($faixas as $faixa)
 
 
 
    @endforeach
+   
    @endforeach
 
    @if(count($faixas)== 0)

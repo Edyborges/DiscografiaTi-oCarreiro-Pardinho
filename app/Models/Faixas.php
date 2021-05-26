@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Faixas extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 
     public function albuns(){
 

@@ -7,7 +7,7 @@
 <div  >
 
 <br>
-    <form class="col-md-6 offset-md-3" action="/update/{{$albuns->id}}"  method="POST" >
+    <form class="col-md-6 offset-md-3" action="/album/update/{{$albuns->id}}"  method="POST" >
         @csrf
         @method('PUT')
 

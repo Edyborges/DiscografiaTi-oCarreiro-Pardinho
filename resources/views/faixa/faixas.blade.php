@@ -4,30 +4,19 @@
 
 @section('content')
 
-
-
-
-
-
-
 <div class="container conteudo">
-
-
-<a class="link" href="/faixa/create"><img src="/img/novo.png" alt="icone">Nova Faixa</a><br>
-
-
- <br>
+   <br>
 
    <table class="table">
       <thead>
          <tr>
-            
+
             <th scope="col">ID</th>
             <th scope="col">NÚMERO</th>
             <th scope="col">NOME</th>
             <th scope="col">DURAÇÃO</th>
-            <th scope="col">Detalhes</th>
-            <th scope="col">Editar Faixa</th>
+            <th scope="col" style="text-align: center;">OPÇÕES</th>
+
          </tr>
       </thead>
       <tbody>
@@ -38,18 +27,35 @@
             <td scope="row">{{ $faixa->numero }} </td>
             <td scope="row">{{ $faixa->nome }} </td>
             <td scope="row"> {{ $faixa->duracao }}</td>
-            <td scope="row" class="icone"> <form action="/faixas/{{$faixa->id}}" method="POST">
+
+
+            <td scope="row" class="icone">
+               <a href="/faixa/edit/{{$faixa->id}}">
+                  <ion-icon name="pencil"></ion-icon>
+               </a>
+
+               <form action="/faixas/{{$faixa->id}}" method="POST">
                   @csrf
                   @method('DELETE')
 
-                  <button class="btn btn-primary"><img src="/img/btn_detalhe.png" alt="icone"></button>
-               </form></td>
-            <td scope="row" class="icone" ><img src="/img/editar.png" alt=""></td>
-          
+
+                  <button style="border: none; background: none;">
+                     <ion-icon name='trash'></ion-icon>
+                  </button>
+               </form>
+            </td>
+
+
          </tr>
+
+
+
          @endforeach
       </tbody>
    </table>
-   
+   <a href="/faixa/create">
+      <ion-icon name="add-circle"></ion-icon>
+      <h6 class="ion-icon">Adicionar Nova</h1>
+   </a><br>
 </div>
 @endsection

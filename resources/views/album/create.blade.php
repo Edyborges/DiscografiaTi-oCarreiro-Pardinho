@@ -12,16 +12,16 @@
 
         <div class="form-group">
             <label for="titulo">Título</label>
-            <input type="text" class="form-control" id="titulo" name="titulo" placeholder="título">
+            <input type="text" class="form-control" id="titulo" name="titulo" placeholder="título" required>
         </div>
       
 
         <div class="form-group">
             <label for="ano">Ano</label>
-            <input type="text" class="form-control" id="ano" name="ano" placeholder="ano">
+            <input type="text" class="form-control" id="ano" name="ano" placeholder="ano" required>
         </div>
         <br>
-        <input type="submit" onclick="mostrarNotificacaoSucesso('{{$msg}}' )" class="btn btn-primary" value="Salvar" id="botao_salvar">
+        <input type="submit"  class="btn btn-primary" value="Salvar" id="botao_salvar">
 
 
 

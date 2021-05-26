@@ -1,17 +1,24 @@
 @extends('layouts.main')
 
-@section('title', $album->titulo)
+@section('title', $albuns->titulo)
 
 @section('content')
+
+
 
 <div class="col-md-10 offset-md-1 ">
     <div class="row">
         <div id="info-container" class="col-md-6">
-            <h6>Album: {{$album->titulo}}, {{$album->ano}}</h6>
+      
+            <h6>Album: {{$albuns->titulo}}, {{$albuns->ano}}</h6>
+    
             <p class="album-faixa"></p>
         </div>
     </div>
 </div>
+
+
+
 <div  class="col-md-6 offset-md-3 conteudo" >
     <table class="table">
        
@@ -26,7 +33,7 @@
      
             @foreach($faixas as $faixa)
             <tr>
-             @if($album->id == $faixa->album_id)
+             @if($albuns->id == $faixa->album_id)
                
                 <td>{{ $faixa->numero }} </td>
                 <td>"{{ $faixa->nome }}"</td>
